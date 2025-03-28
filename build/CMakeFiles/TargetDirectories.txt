@@ -1,0 +1,3 @@
+/Users/tarasgrudzinskij/Documents/semestr_1/ПКР/build/CMakeFiles/lab3_2_unit_test.dir
+/Users/tarasgrudzinskij/Documents/semestr_1/ПКР/build/CMakeFiles/edit_cache.dir
+/Users/tarasgrudzinskij/Documents/semestr_1/ПКР/build/CMakeFiles/rebuild_cache.dir
