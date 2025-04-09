@@ -22,8 +22,25 @@ target_link_libraries(lab3_3_unit_test PRIVATE GTest::gtest GTest::gtest_main pt
 
 
 
-# Додаємо тести для lab3_3_rec
-add_executable(lab3_3_rec_unit_test lab3_3_rec/lab3_3_rec_unit_test.cpp lab3_3_rec/lab3_3_rec.cpp)
+# # Додаємо тести для lab3_3_rec
+# add_executable(lab3_3_rec_unit_test lab3_3_rec/lab3_3_rec_unit_test.cpp lab3_3_rec/lab3_3_rec.cpp)
 
-target_compile_definitions(lab3_3_rec_unit_test PRIVATE UNIT_TESTING)
-target_link_libraries(lab3_3_rec_unit_test PRIVATE GTest::gtest GTest::gtest_main pthread)
+# target_compile_definitions(lab3_3_rec_unit_test PRIVATE UNIT_TESTING)
+# target_link_libraries(lab3_3_rec_unit_test PRIVATE GTest::gtest GTest::gtest_main pthread)
+
+
+
+# Додаємо тести для lab3_4
+add_executable(lab3_4_unit_test lab3_4/lab3_4_unit_test.cpp lab3_4/lab3_4.cpp)
+
+target_compile_definitions(lab3_4_unit_test PRIVATE UNIT_TESTING)
+target_link_libraries(lab3_4_unit_test PRIVATE GTest::gtest GTest::gtest_main pthread)
+
+
+
+# Додаємо тести для lab3_4_rec
+add_executable(lab3_4_rec_unit_test lab3_4_rec/lab3_4_rec_unit_test.cpp lab3_4_rec/lab3_4_rec.cpp)
+
+target_compile_definitions(lab3_4_rec_unit_test PRIVATE UNIT_TESTING)
+target_link_libraries(lab3_4_rec_unit_test PRIVATE GTest::gtest GTest::gtest_main pthread)
+

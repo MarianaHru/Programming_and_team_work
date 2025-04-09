@@ -34,36 +34,32 @@ void printListRecursive(Node *node)
     printListRecursive(node->next);
 }
 
-Node *deleteBeforeValueRecursive(Node *node, Node *&head, Node *&tail, int target)
+void deleteBeforeValueRecursive(Node *&node, Node *&head, Node *&tail, int target)
 {
     if (!node || !node->next)
-        return node;
+        return;
 
     if (node->next->data == target)
     {
         Node *toDelete = node;
+        node = node->next; // Зміщуємо поточний вузол на наступний
         if (toDelete->prev)
         {
-            toDelete->prev->next = toDelete->next;
+            toDelete->prev->next = node;
         }
         else
         {
-            head = toDelete->next;
+            head = node; // Оновлення голови
         }
-        if (toDelete->next)
-        {
-            toDelete->next->prev = toDelete->prev;
-        }
-        else
-        {
-            tail = toDelete->prev;
-        }
-        Node *nextNode = toDelete->next;
+        node->prev = toDelete->prev;
+
         delete toDelete;
-        return deleteBeforeValueRecursive(nextNode, head, tail, target);
+        deleteBeforeValueRecursive(node, head, tail, target);
     }
-    node->next = deleteBeforeValueRecursive(node->next, head, tail, target);
-    return node;
+    else
+    {
+        deleteBeforeValueRecursive(node->next, head, tail, target);
+    }
 }
 
 void freeListRecursive(Node *node)
@@ -73,6 +69,7 @@ void freeListRecursive(Node *node)
     freeListRecursive(node->next);
     delete node;
 }
+
 #ifndef UNIT_TESTING
 int main()
 {
@@ -95,7 +92,7 @@ int main()
     std::cout << "Enter the target value: ";
     std::cin >> target;
 
-    head = deleteBeforeValueRecursive(head, head, tail, target);
+    deleteBeforeValueRecursive(head, head, tail, target);
 
     std::cout << "Modified list: ";
     printListRecursive(head);

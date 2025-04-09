@@ -1,18 +1,5 @@
 #include "lab3_3_rec.h"
 #include <gtest/gtest.h>
-#include <vector>
-
-std::vector<int> listToVector(Node *head)
-{
-    std::vector<int> result;
-    Node *temp = head;
-    while (temp)
-    {
-        result.push_back(temp->data);
-        temp = temp->next;
-    }
-    return result;
-}
 
 TEST(DoublyLinkedListRecursiveTest, InsertAtEnd)
 {
@@ -23,8 +10,14 @@ TEST(DoublyLinkedListRecursiveTest, InsertAtEnd)
     insertAtEnd(head, tail, 2);
     insertAtEnd(head, tail, 3);
 
-    std::vector<int> expected = {1, 2, 3};
-    EXPECT_EQ(listToVector(head), expected);
+    EXPECT_EQ(head->data, 1);
+    EXPECT_EQ(head->next->data, 2);
+    EXPECT_EQ(head->next->next->data, 3);
+    EXPECT_EQ(head->next->next->next, nullptr);
+    EXPECT_EQ(tail->data, 3);
+    EXPECT_EQ(tail->prev->data, 2);
+    EXPECT_EQ(tail->prev->prev->data, 1);
+    EXPECT_EQ(tail->prev->prev->prev, nullptr);
 
     freeListRecursive(head);
 }
@@ -40,13 +33,18 @@ TEST(DoublyLinkedListRecursiveTest, DeleteBeforeValueRecursive)
     insertAtEnd(head, tail, 4);
     insertAtEnd(head, tail, 5);
 
-    head = deleteBeforeValueRecursive(head, head, tail, 3);
-    std::vector<int> expected1 = {1, 3, 4, 5};
-    EXPECT_EQ(listToVector(head), expected1);
+    deleteBeforeValueRecursive(head, head, tail, 3);
+    EXPECT_EQ(head->data, 1);
+    EXPECT_EQ(head->next->data, 3);
+    EXPECT_EQ(head->next->next->data, 4);
+    EXPECT_EQ(head->next->next->next->data, 5);
+    EXPECT_EQ(head->next->next->next->next, nullptr);
 
-    head = deleteBeforeValueRecursive(head, head, tail, 5);
-    std::vector<int> expected2 = {1, 3, 5};
-    EXPECT_EQ(listToVector(head), expected2);
+    deleteBeforeValueRecursive(head, head, tail, 5);
+    EXPECT_EQ(head->data, 1);
+    EXPECT_EQ(head->next->data, 3);
+    EXPECT_EQ(head->next->next->data, 5);
+    EXPECT_EQ(head->next->next->next, nullptr);
 
     freeListRecursive(head);
 }
@@ -60,9 +58,10 @@ TEST(DoublyLinkedListRecursiveTest, DeleteBeforeValueRecursiveHead)
     insertAtEnd(head, tail, 2);
     insertAtEnd(head, tail, 3);
 
-    head = deleteBeforeValueRecursive(head, head, tail, 2);
-    std::vector<int> expected = {2, 3};
-    EXPECT_EQ(listToVector(head), expected);
+    deleteBeforeValueRecursive(head, head, tail, 2);
+    EXPECT_EQ(head->data, 2);
+    EXPECT_EQ(head->next->data, 3);
+    EXPECT_EQ(head->next->next, nullptr);
 
     freeListRecursive(head);
 }
@@ -76,9 +75,11 @@ TEST(DoublyLinkedListRecursiveTest, DeleteBeforeValueRecursiveNoMatch)
     insertAtEnd(head, tail, 2);
     insertAtEnd(head, tail, 3);
 
-    head = deleteBeforeValueRecursive(head, head, tail, 10);
-    std::vector<int> expected = {1, 2, 3};
-    EXPECT_EQ(listToVector(head), expected);
+    deleteBeforeValueRecursive(head, head, tail, 10);
+    EXPECT_EQ(head->data, 1);
+    EXPECT_EQ(head->next->data, 2);
+    EXPECT_EQ(head->next->next->data, 3);
+    EXPECT_EQ(head->next->next->next, nullptr);
 
     freeListRecursive(head);
 }
@@ -88,9 +89,9 @@ TEST(DoublyLinkedListRecursiveTest, DeleteBeforeValueRecursiveEmptyList)
     Node *head = nullptr;
     Node *tail = nullptr;
 
-    head = deleteBeforeValueRecursive(head, head, tail, 10);
-    std::vector<int> expected = {};
-    EXPECT_EQ(listToVector(head), expected);
+    deleteBeforeValueRecursive(head, head, tail, 10);
+    EXPECT_EQ(head, nullptr);
+    EXPECT_EQ(tail, nullptr);
 
     freeListRecursive(head);
 }
@@ -101,9 +102,11 @@ TEST(DoublyLinkedListRecursiveTest, DeleteBeforeValueRecursiveOneElement)
     Node *tail = nullptr;
 
     insertAtEnd(head, tail, 1);
-    head = deleteBeforeValueRecursive(head, head, tail, 10);
-    std::vector<int> expected = {1};
-    EXPECT_EQ(listToVector(head), expected);
+    deleteBeforeValueRecursive(head, head, tail, 10);
+    EXPECT_EQ(head->data, 1);
+    EXPECT_EQ(head->next, nullptr);
+    EXPECT_EQ(tail->data, 1);
+    EXPECT_EQ(tail->prev, nullptr);
 
     freeListRecursive(head);
 }
