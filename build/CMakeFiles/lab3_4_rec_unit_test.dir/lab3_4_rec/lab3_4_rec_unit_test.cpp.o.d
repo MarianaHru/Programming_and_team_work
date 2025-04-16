@@ -1,7 +1,6 @@
 CMakeFiles/lab3_4_rec_unit_test.dir/lab3_4_rec/lab3_4_rec_unit_test.cpp.o: \
   /Users/tarasgrudzinskij/Documents/semestr_1/ПКР/lab3_4_rec/lab3_4_rec_unit_test.cpp \
   /Users/tarasgrudzinskij/Documents/semestr_1/ПКР/lab3_4_rec/lab3_4_rec.h \
-  /Users/tarasgrudzinskij/Documents/vcpkg/installed/x64-osx/include/gtest/gtest.h \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/cstddef \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk/usr/include/pthread.h \
@@ -9,6 +8,7 @@ CMakeFiles/lab3_4_rec_unit_test.dir/lab3_4_rec/lab3_4_rec_unit_test.cpp.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/__stddef_max_align_t.h \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__nullptr \
+  /Users/tarasgrudzinskij/Documents/vcpkg/installed/x64-osx/include/gtest/gtest.h \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/cstdint \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/stdint.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/stdint.h \

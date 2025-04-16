@@ -37,7 +37,6 @@ Node *CreateCircularListFromInput(int count)
     return head;
 }
 
-// Функція, яка виводить список
 void PrintCircularList(Node *head)
 {
     if (!head)

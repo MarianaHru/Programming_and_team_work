@@ -168,6 +168,19 @@ lab3_4_rec_unit_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3_4_rec_unit_test.dir/build.make CMakeFiles/lab3_4_rec_unit_test.dir/build
 .PHONY : lab3_4_rec_unit_test/fast
 
+#=============================================================================
+# Target rules for targets named lab3_5_unit_test
+
+# Build rule for target.
+lab3_5_unit_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab3_5_unit_test
+.PHONY : lab3_5_unit_test
+
+# fast build rule for target.
+lab3_5_unit_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3_5_unit_test.dir/build.make CMakeFiles/lab3_5_unit_test.dir/build
+.PHONY : lab3_5_unit_test/fast
+
 lab3_2/lab3_2.o: lab3_2/lab3_2.cpp.o
 .PHONY : lab3_2/lab3_2.o
 
@@ -360,6 +373,54 @@ lab3_4_rec/lab3_4_rec_unit_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3_4_rec_unit_test.dir/build.make CMakeFiles/lab3_4_rec_unit_test.dir/lab3_4_rec/lab3_4_rec_unit_test.cpp.s
 .PHONY : lab3_4_rec/lab3_4_rec_unit_test.cpp.s
 
+lab3_5/lab3_5.o: lab3_5/lab3_5.cpp.o
+.PHONY : lab3_5/lab3_5.o
+
+# target to build an object file
+lab3_5/lab3_5.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3_5_unit_test.dir/build.make CMakeFiles/lab3_5_unit_test.dir/lab3_5/lab3_5.cpp.o
+.PHONY : lab3_5/lab3_5.cpp.o
+
+lab3_5/lab3_5.i: lab3_5/lab3_5.cpp.i
+.PHONY : lab3_5/lab3_5.i
+
+# target to preprocess a source file
+lab3_5/lab3_5.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3_5_unit_test.dir/build.make CMakeFiles/lab3_5_unit_test.dir/lab3_5/lab3_5.cpp.i
+.PHONY : lab3_5/lab3_5.cpp.i
+
+lab3_5/lab3_5.s: lab3_5/lab3_5.cpp.s
+.PHONY : lab3_5/lab3_5.s
+
+# target to generate assembly for a file
+lab3_5/lab3_5.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3_5_unit_test.dir/build.make CMakeFiles/lab3_5_unit_test.dir/lab3_5/lab3_5.cpp.s
+.PHONY : lab3_5/lab3_5.cpp.s
+
+lab3_5/lab3_5_unit_test.o: lab3_5/lab3_5_unit_test.cpp.o
+.PHONY : lab3_5/lab3_5_unit_test.o
+
+# target to build an object file
+lab3_5/lab3_5_unit_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3_5_unit_test.dir/build.make CMakeFiles/lab3_5_unit_test.dir/lab3_5/lab3_5_unit_test.cpp.o
+.PHONY : lab3_5/lab3_5_unit_test.cpp.o
+
+lab3_5/lab3_5_unit_test.i: lab3_5/lab3_5_unit_test.cpp.i
+.PHONY : lab3_5/lab3_5_unit_test.i
+
+# target to preprocess a source file
+lab3_5/lab3_5_unit_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3_5_unit_test.dir/build.make CMakeFiles/lab3_5_unit_test.dir/lab3_5/lab3_5_unit_test.cpp.i
+.PHONY : lab3_5/lab3_5_unit_test.cpp.i
+
+lab3_5/lab3_5_unit_test.s: lab3_5/lab3_5_unit_test.cpp.s
+.PHONY : lab3_5/lab3_5_unit_test.s
+
+# target to generate assembly for a file
+lab3_5/lab3_5_unit_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3_5_unit_test.dir/build.make CMakeFiles/lab3_5_unit_test.dir/lab3_5/lab3_5_unit_test.cpp.s
+.PHONY : lab3_5/lab3_5_unit_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -372,6 +433,7 @@ help:
 	@echo "... lab3_3_unit_test"
 	@echo "... lab3_4_rec_unit_test"
 	@echo "... lab3_4_unit_test"
+	@echo "... lab3_5_unit_test"
 	@echo "... lab3_2/lab3_2.o"
 	@echo "... lab3_2/lab3_2.i"
 	@echo "... lab3_2/lab3_2.s"
@@ -396,6 +458,12 @@ help:
 	@echo "... lab3_4_rec/lab3_4_rec_unit_test.o"
 	@echo "... lab3_4_rec/lab3_4_rec_unit_test.i"
 	@echo "... lab3_4_rec/lab3_4_rec_unit_test.s"
+	@echo "... lab3_5/lab3_5.o"
+	@echo "... lab3_5/lab3_5.i"
+	@echo "... lab3_5/lab3_5.s"
+	@echo "... lab3_5/lab3_5_unit_test.o"
+	@echo "... lab3_5/lab3_5_unit_test.i"
+	@echo "... lab3_5/lab3_5_unit_test.s"
 .PHONY : help
 
 

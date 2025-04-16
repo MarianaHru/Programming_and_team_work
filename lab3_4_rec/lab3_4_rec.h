@@ -1,6 +1,8 @@
 #ifndef LAB3_4_REC_H
 #define LAB3_4_REC_H
 
+#include <cstddef>
+
 struct Node
 {
     int data;

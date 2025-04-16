@@ -1,22 +1,43 @@
 #include "lab3_4_rec.h"
+#include <cstddef>
 #include <iostream>
 
-// Функція для створення кільцевого списку з масиву
+// Рекурсивна функція для створення кільцевого списку з масиву
+Node *CreateCircularListFromArrayRecursive(int arr[], int size, int index, Node *head, Node *current)
+{
+    if (index >= size)
+    {
+        if (head)
+            current->next = head; // Робимо список кільцевим
+        return head;
+    }
+
+    Node *newNode = new Node;
+    newNode->data = arr[index];
+    newNode->next = nullptr;
+
+    if (!head)
+    {
+        head = newNode;
+        current = head;
+    }
+    else
+    {
+        current->next = newNode;
+        current = current->next;
+    }
+
+    return CreateCircularListFromArrayRecursive(arr, size, index + 1, head, current);
+}
+
+// Функція для створення кільцевого списку з масиву (виклик рекурсивної функції)
 Node *CreateCircularListFromArray(int arr[], int size)
 {
     if (size <= 0)
     {
         return nullptr;
     }
-    Node *head = new Node{arr[0], nullptr};
-    Node *current = head;
-    for (int i = 1; i < size; ++i)
-    {
-        current->next = new Node{arr[i], nullptr};
-        current = current->next;
-    }
-    current->next = head; // Робимо список кільцевим
-    return head;
+    return CreateCircularListFromArrayRecursive(arr, size, 0, nullptr, nullptr);
 }
 
 // Рекурсивна функція створення списку
@@ -29,7 +50,9 @@ Node *CreateCircularListRecursive(int count, int index, Node *head, Node *prev)
     std::cout << "Введіть значення " << index << "-го елемента: ";
     std::cin >> value;
 
-    Node *current = new Node{value, nullptr};
+    Node *current = new Node;
+    current->data = value;
+    current->next = nullptr;
 
     if (index == 1)
     {
@@ -49,7 +72,6 @@ Node *CreateCircularListRecursive(int count, int index, Node *head, Node *prev)
     return CreateCircularListRecursive(count, index + 1, head, current);
 }
 
-// Рекурсивна функція виводу списку
 void PrintCircularListRecursive(Node *current, Node *head, bool firstCall)
 {
     if (!current || (!firstCall && current == head))
@@ -81,7 +103,6 @@ bool ContainsDuplicate(Node *head)
     return CheckDuplicateRecursive(head, head, head->next);
 }
 
-// Рекурсивне видалення списку
 void DeleteCircularListRecursive(Node *current, Node *head)
 {
     if (!current || current->next == head)
@@ -121,6 +142,15 @@ int main()
     std::cout << "Чи є дублікати у списку? " << (hasDuplicates ? "Так" : "Ні") << std::endl;
 
     DeleteCircularList(list);
+
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    Node *listFromArray = CreateCircularListFromArray(arr, size);
+    std::cout << "Список з масиву: ";
+    PrintCircularListRecursive(listFromArray, listFromArray);
+    std::cout << std::endl;
+    DeleteCircularList(listFromArray);
+
     return 0;
 }
 #endif

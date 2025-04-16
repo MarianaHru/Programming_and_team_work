@@ -1,14 +1,8 @@
-CMakeFiles/lab3_4_rec_unit_test.dir/lab3_4_rec/lab3_4_rec.cpp.o: \
-  /Users/tarasgrudzinskij/Documents/semestr_1/ПКР/lab3_4_rec/lab3_4_rec.cpp \
-  /Users/tarasgrudzinskij/Documents/semestr_1/ПКР/lab3_4_rec/lab3_4_rec.h \
-  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/cstddef \
+CMakeFiles/lab3_5_unit_test.dir/lab3_5/lab3_5.cpp.o: \
+  /Users/tarasgrudzinskij/Documents/semestr_1/ПКР/lab3_5/lab3_5.cpp \
+  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk/usr/include/pthread.h \
-  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__cxx_version \
-  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/stddef.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/__stddef_max_align_t.h \
-  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__nullptr \
-  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/ios \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iosfwd \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/wchar.h \
@@ -69,6 +63,11 @@ CMakeFiles/lab3_4_rec_unit_test.dir/lab3_4_rec/lab3_4_rec.cpp.o: \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__string \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/algorithm \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/initializer_list \
+  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/cstddef \
+  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__cxx_version \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/stddef.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include/__stddef_max_align_t.h \
+  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__nullptr \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/type_traits \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/cstring \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/string.h \
@@ -225,4 +224,10 @@ CMakeFiles/lab3_4_rec_unit_test.dir/lab3_4_rec/lab3_4_rec.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__bsd_locale_defaults.h \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/bitset \
-  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__bit_reference
+  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__bit_reference \
+  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/fstream \
+  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/filesystem \
+  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/stack \
+  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/deque \
+  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__split_buffer \
+  /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iomanip

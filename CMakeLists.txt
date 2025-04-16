@@ -44,3 +44,9 @@ add_executable(lab3_4_rec_unit_test lab3_4_rec/lab3_4_rec_unit_test.cpp lab3_4_r
 target_compile_definitions(lab3_4_rec_unit_test PRIVATE UNIT_TESTING)
 target_link_libraries(lab3_4_rec_unit_test PRIVATE GTest::gtest GTest::gtest_main pthread)
 
+
+# Додаємо тести для lab3_5
+add_executable(lab3_5_unit_test lab3_5/lab3_5_unit_test.cpp lab3_5/lab3_5.cpp)
+
+target_compile_definitions(lab3_5_unit_test PRIVATE UNIT_TESTING)
+target_link_libraries(lab3_5_unit_test PRIVATE GTest::gtest GTest::gtest_main pthread)
