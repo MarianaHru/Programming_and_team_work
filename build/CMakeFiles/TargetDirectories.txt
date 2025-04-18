@@ -3,5 +3,8 @@
 /Users/tarasgrudzinskij/Documents/semestr_1/ПКР/build/CMakeFiles/lab3_4_unit_test.dir
 /Users/tarasgrudzinskij/Documents/semestr_1/ПКР/build/CMakeFiles/lab3_4_rec_unit_test.dir
 /Users/tarasgrudzinskij/Documents/semestr_1/ПКР/build/CMakeFiles/lab3_5_unit_test.dir
+/Users/tarasgrudzinskij/Documents/semestr_1/ПКР/build/CMakeFiles/lab3_6_unit_test.dir
+/Users/tarasgrudzinskij/Documents/semestr_1/ПКР/build/CMakeFiles/lab3_7_unit_test.dir
+/Users/tarasgrudzinskij/Documents/semestr_1/ПКР/build/CMakeFiles/lab3_8_unit_test.dir
 /Users/tarasgrudzinskij/Documents/semestr_1/ПКР/build/CMakeFiles/edit_cache.dir
 /Users/tarasgrudzinskij/Documents/semestr_1/ПКР/build/CMakeFiles/rebuild_cache.dir

@@ -107,7 +107,6 @@ void generateFactorQueues(Queue *queues[], int n)
         current++;
     }
 }
-
 // Виведення результату
 void printFactorQueues(Queue *queues[], int n)
 {
@@ -130,8 +129,7 @@ void deleteQueues(Queue *queues[], int n)
         delete queues[i];
     }
 }
-
-// === Головна функція ===
+#ifndef UNIT_TESTING
 int main()
 {
     int n;
@@ -145,3 +143,4 @@ int main()
 
     return 0;
 }
+#endif
