@@ -74,3 +74,10 @@ add_executable(lab3_8_unit_test lab3_8/lab3_8_unit_test.cpp lab3_8/lab3_8.cpp)
 
 target_compile_definitions(lab3_8_unit_test PRIVATE UNIT_TESTING)
 target_link_libraries(lab3_8_unit_test PRIVATE GTest::gtest GTest::gtest_main pthread)
+
+
+# Додаємо тести для lab3_9
+add_executable(lab3_9_unit_test lab3_9/lab3_9_unit_test.cpp lab3_9/lab3_9.cpp)
+
+target_compile_definitions(lab3_9_unit_test PRIVATE UNIT_TESTING)
+target_link_libraries(lab3_9_unit_test PRIVATE GTest::gtest GTest::gtest_main pthread)

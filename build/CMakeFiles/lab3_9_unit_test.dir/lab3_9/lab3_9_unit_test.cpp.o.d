@@ -1,6 +1,6 @@
-CMakeFiles/lab3_7_unit_test.dir/lab3_7/lab3_7_unit_test.cpp.o: \
-  /Users/tarasgrudzinskij/Documents/semestr_1/ПКР/lab3_7/lab3_7_unit_test.cpp \
-  /Users/tarasgrudzinskij/Documents/semestr_1/ПКР/lab3_7/lab3_7.h \
+CMakeFiles/lab3_9_unit_test.dir/lab3_9/lab3_9_unit_test.cpp.o: \
+  /Users/tarasgrudzinskij/Documents/semestr_1/ПКР/lab3_9/lab3_9_unit_test.cpp \
+  /Users/tarasgrudzinskij/Documents/semestr_1/ПКР/lab3_9/lab3_9.h \
   /Users/tarasgrudzinskij/Documents/vcpkg/installed/x64-osx/include/gtest/gtest.h \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/cstddef \
   /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/__config \

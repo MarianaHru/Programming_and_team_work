@@ -1,62 +1,6 @@
 #include "lab3_8.h"
 #include <gtest/gtest.h>
 
-Node *createCircularListFromArray(const int *arr, int size)
-{
-    Node *head = nullptr;
-    Node *tail = nullptr;
-
-    for (int i = 0; i < size; ++i)
-    {
-        Node *newNode = new Node{arr[i], nullptr, nullptr};
-        if (!head)
-        {
-            head = newNode;
-            tail = newNode;
-            head->next = head;
-            head->prev = head;
-        }
-        else
-        {
-            newNode->prev = tail;
-            newNode->next = head;
-            tail->next = newNode;
-            head->prev = newNode;
-            tail = newNode;
-        }
-    }
-
-    return head;
-}
-
-int countNodes(Node *head)
-{
-    if (!head)
-        return 0;
-    int count = 0;
-    Node *current = head;
-    do
-    {
-        ++count;
-        current = current->next;
-    } while (current != head);
-    return count;
-}
-
-bool containsValue(Node *head, int value)
-{
-    if (!head)
-        return false;
-    Node *current = head;
-    do
-    {
-        if (current->data == value)
-            return true;
-        current = current->next;
-    } while (current != head);
-    return false;
-}
-
 TEST(Lab3_8Test, CreateCircularList)
 {
     int arr[] = {1, 2, 3};

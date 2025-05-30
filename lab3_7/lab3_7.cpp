@@ -1,111 +1,116 @@
-// true — ціле число, false — дійсне
 #include <iostream>
 #include <iomanip>
-using namespace std;
 
-// Структура вузла односпрямованого списку
+enum Type
+{
+    INT,
+    DOUBLE
+};
+
 struct Node
 {
-    bool isInt;
+    Type type;
     union
     {
-        int iVal;
-        double dVal;
+        int intValue;
+        double doubleValue;
     };
     Node *next;
 };
 
-// Додає новий вузол у кінець списку
-void AppendNode(Node *&head, bool isInt, int iVal, double dVal)
+// Створити новий вузол з int(цілі числа)
+Node *createIntNode(int value)
 {
-    Node *newNode = new Node;
-    newNode->isInt = isInt;
-    newNode->next = nullptr;
-    if (isInt)
-        newNode->iVal = iVal;
-    else
-        newNode->dVal = dVal;
+    Node *node = new Node;
+    node->type = INT;
+    node->intValue = value;
+    node->next = nullptr;
+    return node;
+}
 
+// Створити новий вузол з double(дійсні числа)
+Node *createDoubleNode(double value)
+{
+    Node *node = new Node;
+    node->type = DOUBLE;
+    node->doubleValue = value;
+    node->next = nullptr;
+    return node;
+}
+
+// Додати вузол у кінець списку
+void append(Node *&head, const string &word)
+{
+    Node *newNode = new Node{word, nullptr};
     if (!head)
     {
-        head = newNode;
+        head = newNode; // Якщо список порожній — новий вузол стає головою
     }
     else
     {
-        Node *temp = head;
-        while (temp->next)
-            temp = temp->next;
-        temp->next = newNode;
+        Node *current = head;
+        while (current->next) // Йдемо до останнього вузла
+            current = current->next;
+        current->next = newNode; // Додаємо новий вузол у кінець
     }
 }
 
-void PrintList(const Node *head)
+// Вивід списку
+void printList(Node *head)
 {
-    const Node *current = head;
+    Node *current = head;
     while (current)
     {
-        if (current->isInt)
-            cout << current->iVal << " ";
+        if (current->type == INT)
+            std::cout << current->intValue << " ";
         else
-            cout << fixed << setprecision(2) << current->dVal << " ";
+            std::cout << std::fixed << std::setprecision(2) << current->doubleValue << " ";
         current = current->next;
     }
-    cout << endl;
+    std::cout << "\n";
 }
 
-// Змішує цілі та дійсні числа в один список почергово
-Node *MergeAlternating(const int *ints, int intSize, const double *doubles, int doubleSize)
-{
-    Node *result = nullptr;
-    int i = 0, j = 0;
-    while (i < intSize || j < doubleSize)
-    {
-        if (i < intSize)
-        {
-            AppendNode(result, true, ints[i], 0.0);
-            i++;
-        }
-        if (j < doubleSize)
-        {
-            AppendNode(result, false, 0, doubles[j]);
-            j++;
-        }
-    }
-    return result;
-}
-
-// Переміщує останнє ціле число на початок списку
-void MoveLastIntToFront(Node *&head)
+// Перенести останній цілий елемент на початок
+void moveLastIntToFront(Node *&head)
 {
     if (!head || !head->next)
-        return;
+        return; // список порожній або лише один елемент
 
-    Node *prev = nullptr;
     Node *current = head;
-    Node *lastInt = nullptr;
-    Node *lastIntPrev = nullptr;
+    Node *prev = nullptr;
 
-    while (current)
+    Node *last = head;
+    Node *beforeLast = nullptr;
+
+    // Пошук останнього елемента і його попередника
+    while (last->next)
     {
-        if (current->isInt)
-        {
-            lastIntPrev = prev;
-            lastInt = current;
-        }
-        prev = current;
-        current = current->next;
+        beforeLast = last;
+        last = last->next;
     }
 
-    if (lastInt && lastInt == prev && lastInt != head)
+    // Якщо останній вузол — ціле число
+    if (last->type == INT)
     {
-        lastIntPrev->next = lastInt->next;
-        lastInt->next = head;
-        head = lastInt;
+        // Зберігаємо значення
+        int val = last->intValue;
+
+        // Видаляємо останній вузол
+        if (beforeLast)
+        {
+            delete last;
+            beforeLast->next = nullptr;
+        }
+
+        // Створюємо новий вузол і ставимо на початок
+        Node *newNode = createIntNode(val);
+        newNode->next = head;
+        head = newNode;
     }
 }
 
-// Видаляє список і звільняє пам'ять
-void DeleteList(Node *&head)
+// Видалити список
+void deleteList(Node *&head)
 {
     while (head)
     {
@@ -117,39 +122,46 @@ void DeleteList(Node *&head)
 #ifndef UNIT_TESTING
 int main()
 {
-    int nInt, nDouble;
+    int n, m;
 
-    cout << "Скільки цілих чисел? ";
-    cin >> nInt;
-    int *intArr = new int[nInt];
-    cout << "Введіть " << nInt << " цілих чисел: ";
-    for (int i = 0; i < nInt; ++i)
+    std::cout << "Скільки цілих чисел? ";
+    std::cin >> n;
+    int *intArr = new int[n];
+    std::cout << "Введіть " << n << " цілих чисел: ";
+    for (int i = 0; i < n; ++i)
+        std::cin >> intArr[i];
+
+    std::cout << "Скільки дійсних чисел? ";
+    std::cin >> m;
+    double *doubleArr = new double[m];
+    std::cout << "Введіть " << m << " дійсних чисел: ";
+    for (int i = 0; i < m; ++i)
+        std::cin >> doubleArr[i];
+
+    Node *list = nullptr;
+
+    // Чергуємо int і double
+    int i = 0, j = 0;
+    while (i < n || j < m)
     {
-        cin >> intArr[i];
+        if (i < n)
+            append(list, createIntNode(intArr[i++]));
+        if (j < m)
+            append(list, createDoubleNode(doubleArr[j++]));
     }
 
-    cout << "Скільки дійсних чисел? ";
-    cin >> nDouble;
-    double *doubleArr = new double[nDouble];
-    cout << "Введіть " << nDouble << " дійсних чисел: ";
-    for (int i = 0; i < nDouble; ++i)
-    {
-        cin >> doubleArr[i];
-    }
+    std::cout << "\nСписок до змін:\n";
+    printList(list);
 
-    Node *list = MergeAlternating(intArr, nInt, doubleArr, nDouble);
+    moveLastIntToFront(list);
 
-    cout << "\nСписок до змін:\n";
-    PrintList(list);
+    std::cout << "\nСписок після переносу останнього цілого на початок:\n";
+    printList(list);
 
-    MoveLastIntToFront(list);
-
-    cout << "\nСписок після переносу останнього цілого на початок:\n";
-    PrintList(list);
-
-    DeleteList(list);
     delete[] intArr;
     delete[] doubleArr;
+    deleteList(list);
+
     return 0;
 }
 #endif
